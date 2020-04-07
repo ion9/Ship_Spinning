@@ -1,0 +1,22 @@
+{
+  "name": "Wrapper_for_CCPWGL2",
+  "version": "0.0.3",
+  "description": "CCPWGL2",
+  "author": "",
+  "license": "MIT",
+  "homepage": "https://github.com/cppctamber/ccpwgl2#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cppctamber/ccpwgl2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cppctamber/ccpwgl2/issues"
+  },
+  "dependencies": {
+    "ccpwgl2": "git+https://github.com/cppctamber/ccpwgl2.git"
+  },
+  "scripts": {    
+    "start": "node server.js",
+    "build": "cp -r node_modules/ccpwgl2/demo/ dist/ && cp -r node_modules/ccpwgl2/dist dist/ && cp -r node_modules/ccpwgl2/cdn/static dist/"
+  }
+}

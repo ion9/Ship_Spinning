@@ -1,0 +1,50 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: spinner-ingress
+spec:
+  rules:
+  - host: spinner.at.damnserver.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: spinner-service
+          servicePort: 3000
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: spinner-service
+spec:
+  selector:
+    app: spinner
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spinner
+  labels:
+    app: spinner
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spinner
+  template:
+    metadata:
+      labels:
+        app: spinner
+    spec:
+      imagePullSecrets:
+      - name: pipeline-docker-registry
+      containers:
+      - name: spinner
+        image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+        ports:
+        - containerPort: 3000

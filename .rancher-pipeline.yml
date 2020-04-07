@@ -1,0 +1,15 @@
+stages:
+- name: Publish image
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: spinner:${CICD_EXECUTION_SEQUENCE}
+- name: Deploy
+  steps:
+  - applyYamlConfig:
+      path: deployment.yaml
+branch:
+  include:
+  - master
+notification: {}
