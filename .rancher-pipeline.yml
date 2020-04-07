@@ -12,7 +12,7 @@ stages:
     envFrom:
     - sourceName: domain
       sourceKey: domain
-      targetKey: domain
+      targetKey: DOMAIN
 branch:
   include:
   - master
