@@ -1,0 +1,3 @@
+[submodule "ccpwgl2"]
+	path = ccpwgl2
+	url = https://github.com/cppctamber/ccpwgl2.git
