@@ -8,14 +8,18 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package*.json ./
 
+# Set the username we will run as
+ENV user node
+
 #RUN npm install
 # If you are building your code for production
-RUN mkdir dist && npm install && npm run-script build
+RUN mkdir dist && npm install && npm run-script build && groupadd --system $user && useradd --system --gid $user $user
 
 COPY server.js ./ 
 COPY index.html dist/
 
 WORKDIR /usr/src/app/dist
-
+RUN chown $user --recursive .
+USER $user
 EXPOSE 3000
 CMD [ "npm", "start" ]
