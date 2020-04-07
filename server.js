@@ -49,7 +49,7 @@ http.createServer(function (req, res) {
   }
 
   // path.join glues bunch of words into a valid file path on the computer (server)
-  const filepath = path.join(process.cwd(), '/', pathname) 
+  const filepath = path.join('/usr/src/app/dist', '/', pathname) 
 
   // OK, now we know which file user is requesting (pathname) & where the file should live on the computer (filepath)
   // Let's check if the file exist on the computer
@@ -73,4 +73,4 @@ http.createServer(function (req, res) {
     fileStream.pipe(res)
   })
 
-}).listen(process.env.PORT)
+}).listen(3000)

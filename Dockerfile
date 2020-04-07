@@ -15,9 +15,6 @@ RUN mkdir dist && npm install && npm run-script build
 COPY server.js ./ 
 COPY index.html dist/
 
-# Bundle app source
-#npm COPY ccpwgl2/`. .
-
 WORKDIR /usr/src/app/dist
 
 EXPOSE 3000
