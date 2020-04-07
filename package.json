@@ -2,15 +2,15 @@
   "name": "Wrapper_for_CCPWGL2",
   "version": "0.0.3",
   "description": "Rancher CI/CD example useing CCPWGL2",
-  "author": "",
+  "author": "ion9",
   "license": "MIT",
-  "homepage": "https://github.com/cppctamber/ccpwgl2#readme",
+  "homepage": "https://github.com/ion9/Ship_Spinning#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cppctamber/ccpwgl2.git"
+    "url": "git+https://github.com/ion9/Ship_Spinning.git"
   },
   "bugs": {
-    "url": "https://github.com/cppctamber/ccpwgl2/issues"
+    "url": "https://github.com/ion9/Ship_Spinning/issues"
   },
   "dependencies": {
     "ccpwgl2": "git+https://github.com/cppctamber/ccpwgl2.git"
