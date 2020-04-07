@@ -9,10 +9,6 @@ stages:
   steps:
   - applyYamlConfig:
       path: deployment.yaml
-    envFrom:
-    - sourceName: domain
-      sourceKey: domain
-      targetKey: DOMAIN
 branch:
   include:
   - master
