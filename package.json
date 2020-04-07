@@ -1,7 +1,7 @@
 {
   "name": "Wrapper_for_CCPWGL2",
   "version": "0.0.3",
-  "description": "CCPWGL2",
+  "description": "Rancher CI/CD example useing CCPWGL2",
   "author": "",
   "license": "MIT",
   "homepage": "https://github.com/cppctamber/ccpwgl2#readme",
