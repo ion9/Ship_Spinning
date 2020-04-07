@@ -4,7 +4,7 @@ metadata:
   name: spinner-ingress
 spec:
   rules:
-  - host: spinner.${ingress-ip-domain}
+  - host: spinner.${domain}
     http:
       paths:
       - path: /
