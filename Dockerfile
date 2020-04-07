@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Set the username we will run as
-ENV user node
+ENV user appuser
 
 #RUN npm install
 # If you are building your code for production
@@ -19,7 +19,8 @@ COPY server.js ./
 COPY index.html dist/
 
 WORKDIR /usr/src/app/dist
-RUN chown $user --recursive .
+
+# Switch to the non-root user
 USER $user
 EXPOSE 3000
 CMD [ "npm", "start" ]
