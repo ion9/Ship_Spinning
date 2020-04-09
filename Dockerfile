@@ -1,26 +1,18 @@
-FROM node:8
-
+FROM node as build
 # Create app directory
 WORKDIR /usr/src/app
-
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package*.json ./
 
-# Set the username we will run as
-ENV user appuser
-
 #RUN npm install
 # If you are building your code for production
-RUN mkdir dist && npm install && npm run-script build && groupadd --system $user && useradd --system --gid $user $user
+RUN mkdir dist && npm install && npm run-script build
 
-COPY server.js ./ 
+# place our own index file to work around the directory layout of the upstream repo.
 COPY index.html dist/
 
-WORKDIR /usr/src/app/dist
-
-# Switch to the non-root user
-USER $user
-EXPOSE 3000
-CMD [ "npm", "start" ]
+# Build the final image used to serve them
+FROM nginx:1.14.0
+COPY --from=build /usr/src/app/dist* /usr/share/nginx/html/

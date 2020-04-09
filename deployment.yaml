@@ -10,7 +10,7 @@ spec:
       - path: /
         backend:
           serviceName: spinner-service
-          servicePort: 3000
+          servicePort: 80
 ---
 kind: Service
 apiVersion: v1
@@ -22,8 +22,8 @@ spec:
   type: ClusterIP
   ports:
     - protocol: TCP
-      port: 3000
-      targetPort: 3000
+      port: 80
+      targetPort: 80
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -47,4 +47,4 @@ spec:
       - name: spinner
         image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
         ports:
-        - containerPort: 3000
+        - containerPort: 80
