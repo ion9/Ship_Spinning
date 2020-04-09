@@ -13,7 +13,7 @@
     "url": "https://github.com/ion9/Ship_Spinning/issues"
   },
   "dependencies": {
-    "ccpwgl2": "git+https://github.com/cppctamber/ccpwgl2.git"
+    "ccpwgl2": "git+https://github.com/cppctamber/ccpwgl2#master"
   },
   "scripts": {
     "start": "node server.js",
