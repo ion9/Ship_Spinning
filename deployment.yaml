@@ -33,16 +33,6 @@ metadata:
     app: spinner
 spec:
   replicas: 4
-  affinity:
-    podAntiAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-      - labelSelector:
-        matchExpressions:
-        - key: app
-          operator: In
-          values:
-          - spinner
-        topologyKey: "kubernetes.io/hostname"
   selector:
     matchLabels:
       app: spinner
@@ -51,6 +41,16 @@ spec:
       labels:
         app: spinner
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+            matchExpressions:
+            - key: app
+              operator: In
+              values:
+              - spinner
+            topologyKey: "kubernetes.io/hostname"
       imagePullSecrets:
       - name: pipeline-docker-registry
       containers:
