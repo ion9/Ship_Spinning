@@ -12,5 +12,3 @@ COPY index.html ./dist/
 # Build the final image used to serve them
 FROM nginx:1.14.0
 COPY --from=build /usr/src/app/dist* /usr/share/nginx/html/
-# change user so we are not running as root
-USER nginx
