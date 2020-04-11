@@ -17,6 +17,6 @@
   },
   "scripts": {
     "start": "node server.js",
-    "build": "cp -r node_modules/ccpwgl2/demo/ dist/ && cp -r node_modules/ccpwgl2/dist dist/"
+    "setup": "mkdir dist && cp -r node_modules/ccpwgl2/demo/ dist/ && cp -r node_modules/ccpwgl2/dist dist/"
   }
 }

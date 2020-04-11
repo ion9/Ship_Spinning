@@ -2,7 +2,6 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: spinner-ingress
-
 spec:
   rules:
   - host: spinner.at.damnserver.com
@@ -33,7 +32,17 @@ metadata:
   labels:
     app: spinner
 spec:
-  replicas: 1
+  replicas: 4
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+        matchExpressions:
+        - key: app
+          operator: In
+          values:
+          - spinner
+        topologyKey: "kubernetes.io/hostname"
   selector:
     matchLabels:
       app: spinner
